@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">AndroidFinal</string>
+    <string name="is_active">is_active</string>
+    <string name="list_all">List All</string>
+    <string name="add">Add</string>
+</resources>
