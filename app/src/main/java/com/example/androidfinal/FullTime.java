@@ -40,9 +40,6 @@ public class FullTime extends Employee {
 
     @Override
     public String toString() {
-        return super.toString() + " FullTime{" +
-                "salary=" + salary +
-                ", bonus=" + bonus +
-                '}';
+        return super.toString() + ", Full Time";
     }
 }

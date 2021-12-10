@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
                  databaseHelper = new DatabaseHelper(MainActivity.this);
                 boolean success = databaseHelper.addOne(employeeModel);
-                //updateEmployeesList();
+                updateEmployeesList();
 
                 Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_LONG).show();
             }
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         lv_employeeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                EmployeeModel clickedEmployee = (EmployeeModel) parent.getItemAtPosition(position);
+                Employee clickedEmployee = (Employee) parent.getItemAtPosition(position);
                 databaseHelper.deleteOne(clickedEmployee);
                 updateEmployeesList();
                 Toast.makeText(MainActivity.this, "Deleted !", Toast.LENGTH_LONG).show();

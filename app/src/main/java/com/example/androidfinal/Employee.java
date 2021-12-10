@@ -73,11 +73,6 @@ public abstract class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "empID='" + getEmpID() + '\'' +
-                ", firstName='" + getFirstName() + '\'' +
-                ", lastName='" + getLastName() + '\'' +
-                ", birthYear=" + getBirthYear() +
-                '}';
+        return getFirstName() + " " + getLastName();
     }
 }

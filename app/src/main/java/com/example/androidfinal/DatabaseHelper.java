@@ -17,6 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_EMPLOYEE_FNAME = "EMPLOYEE_FNAME";
     public static final String COLUMN_EMPLOYEE_LNAME = "EMPLOYEE_LNAME";
     public static final String COLUMN_EMPLOYEE_DOB = "EMPLOYEE_DOB";
+    public static final String COLUMN_EMPLOYEE_ROLE = "EMPLOYEE_ROLE";
 
     public static final String COLUMN_ID = "ID";
 
@@ -31,7 +32,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createStmt = "CREATE TABLE EMPLOYEE_TABLE(" + COLUMN_ID + " TEXT PRIMARY KEY , " + COLUMN_EMPLOYEE_FNAME + " TEXT, " + COLUMN_EMPLOYEE_LNAME + " TEXT, " + COLUMN_EMPLOYEE_DOB + " INTEGER)";
+        String createStmt = "CREATE TABLE EMPLOYEE_TABLE(" + COLUMN_ID + " TEXT PRIMARY KEY , "
+                + COLUMN_EMPLOYEE_FNAME + " TEXT, " + COLUMN_EMPLOYEE_LNAME + " TEXT, " + COLUMN_EMPLOYEE_DOB + " INTEGER, " + COLUMN_EMPLOYEE_ROLE + " TEXT )";
 
         db.execSQL(createStmt);
 
@@ -55,7 +57,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_EMPLOYEE_FNAME, employeeModel.getFirstName());
         cv.put(COLUMN_EMPLOYEE_LNAME, employeeModel.getLastName());
         cv.put(COLUMN_EMPLOYEE_DOB, employeeModel.getBirthYear());
-
+//        cv.put(COLUMN_EMPLOYEE_ROLE, "FT");
 
         long result = db.insert(EMPLOYEE_TABLE,null ,cv);
 
@@ -71,9 +73,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * @param emp
      * @return
      */
-    public boolean deleteOne (EmployeeModel emp) {
+    public boolean deleteOne (Employee emp) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String stmt = "DELETE FROM " + EMPLOYEE_TABLE + " WHERE " + COLUMN_ID + " = " + emp.getId();
+        String stmt = "DELETE FROM " + EMPLOYEE_TABLE + " WHERE " + COLUMN_ID + " = " +"\"" + emp.getEmpID() + "\"";
 
         Cursor cursor = db.rawQuery(stmt, null);
 
