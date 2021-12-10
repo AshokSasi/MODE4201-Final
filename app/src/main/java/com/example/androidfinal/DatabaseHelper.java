@@ -50,15 +50,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * @param employeeModel
      * @return
      */
-    public boolean addOne(Employee employeeModel) {
+    public boolean addFTOne(Employee employeeModel) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_ID, employeeModel.getEmpID());
         cv.put(COLUMN_EMPLOYEE_FNAME, employeeModel.getFirstName());
         cv.put(COLUMN_EMPLOYEE_LNAME, employeeModel.getLastName());
         cv.put(COLUMN_EMPLOYEE_DOB, employeeModel.getBirthYear());
-//        cv.put(COLUMN_EMPLOYEE_ROLE, "FT");
+       cv.put(COLUMN_EMPLOYEE_ROLE, "FT");
 
+       //ADD SALARY TO GLOBAL VAR
+
+        //-------
         long result = db.insert(EMPLOYEE_TABLE,null ,cv);
 
         if (result == -1) {

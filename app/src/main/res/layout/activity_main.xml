@@ -33,6 +33,32 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
+        android:id="@+id/txtSalary"
+        android:layout_width="148dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="212dp"
+        android:ems="10"
+        android:inputType="numberSigned|numberDecimal"
+        android:minHeight="48dp"
+        android:text="Salary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtBonus"
+        android:layout_width="148dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="212dp"
+        android:layout_marginEnd="24dp"
+        android:ems="10"
+        android:inputType="numberSigned|numberDecimal"
+        android:minHeight="48dp"
+        android:text="Bonus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
         android:id="@+id/txtyear"
         android:layout_width="158dp"
         android:layout_height="48dp"
@@ -63,35 +89,10 @@
         android:id="@+id/btnAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="100dp"
         android:text="@string/add"
-        app:layout_constraintEnd_toStartOf="@+id/btnListAll"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtLName" />
-
-    <Button
-        android:id="@+id/btnListAll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="84dp"
-        android:text="@string/list_all"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtLName" />
-
-    <ListView
-        android:id="@+id/lstEmployees"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnListAll"
-        app:layout_constraintVertical_bias="0.705" />
+        app:layout_constraintTop_toBottomOf="@+id/txtLName" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
