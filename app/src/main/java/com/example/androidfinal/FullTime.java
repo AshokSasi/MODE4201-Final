@@ -35,7 +35,7 @@ public class FullTime extends Employee {
 
     @Override
     public int calcEarnings() {
-        return this.salary + this.bonus;
+        return getSalary() + getBonus();
     }
 
     @Override

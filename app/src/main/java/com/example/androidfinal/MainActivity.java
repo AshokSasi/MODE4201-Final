@@ -17,8 +17,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private Button btn_add, btn_listAll;
-    private EditText et_name, et_age, et_lname,et_id;
-
+    private EditText et_name, et_age, et_lname,et_id,et_salary, et_bonus;
+    private int payroll;
     //private ListView lv_employeeList;
 
     private DatabaseHelper databaseHelper;
@@ -33,6 +33,15 @@ public class MainActivity extends AppCompatActivity {
 //        lv_employeeList.setAdapter(arrayAdapter);
 //    }
 
+    private void calcPayroll(Employee employee)
+    {
+        payroll += employee.calcEarnings();
+
+
+       // Toast.makeText(MainActivity.this,Integer.toString(payroll) , Toast.LENGTH_LONG).show();
+       // System.out.println(payroll);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
         et_age = findViewById(R.id.txtyear);
         et_name = findViewById(R.id.txtName);
         et_lname = findViewById(R.id.txtLName);
+        et_salary = findViewById(R.id.txtSalary);
+        et_bonus = findViewById(R.id.txtBonus);
        // lv_employeeList = findViewById(R.id.lstEmployees);
 
         databaseHelper = new DatabaseHelper(MainActivity.this);
@@ -62,14 +73,42 @@ public class MainActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View view) {
-                Employee employeeModel = new FullTime(et_id.getText().toString(),et_name.getText().toString(),et_lname.getText().toString(), Integer.parseInt(et_age.getText().toString()),20,20);
-                Toast.makeText(MainActivity.this, "Add button clicked", Toast.LENGTH_SHORT).show();
 
-                 databaseHelper = new DatabaseHelper(MainActivity.this);
-                boolean success = databaseHelper.addFTOne(employeeModel);
+
+                   Employee employeeModel = new FullTime(et_id.getText().toString(),et_name.getText().toString(),et_lname.getText().toString(),
+                           Integer.parseInt(et_age.getText().toString()),
+                           Integer.parseInt(et_salary.getText().toString()),
+                           Integer.parseInt(et_bonus.getText().toString()));
+
+                   boolean success = databaseHelper.addFTOne(employeeModel);
+
+
+
+
+                       //Toast.makeText(MainActivity.this, "Added Emp", Toast.LENGTH_LONG).show();
+                      // Toast.makeText(MainActivity.this, employeeModel.getEmpID(), Toast.LENGTH_LONG).show();
+                       calcPayroll(employeeModel);
+                       databaseHelper = new DatabaseHelper(MainActivity.this);
+
+
+
+                       //Toast.makeText(MainActivity.this, "Failed to add", Toast.LENGTH_LONG).show();
+
+
+//                   Toast.makeText(MainActivity.this, "Add button clicked", Toast.LENGTH_SHORT).show();
+
+
+
+
+
+
+
+
+
+
                 //updateEmployeesList();
 
-                Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_LONG).show();
+
             }
 
         });
