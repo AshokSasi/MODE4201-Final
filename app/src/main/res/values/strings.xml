@@ -22,4 +22,6 @@
     <string name="birth_year">Birth Year</string>
     <string name="last_name">Last Name</string>
     <string name="first_name">First Name</string>
+    <string name="rate">Rate</string>
+    <string name="hours_worked">Hours Worked</string>
 </resources>

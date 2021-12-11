@@ -4,15 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.Switch;
 import android.widget.Toast;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -54,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         et_age = findViewById(R.id.txtyear);
         et_name = findViewById(R.id.txtName);
         et_lname = findViewById(R.id.txtLName);
-        et_salary = findViewById(R.id.txtSalary);
+        et_salary = findViewById(R.id.txtHours);
         et_bonus = findViewById(R.id.txtBonus);
        // lv_employeeList = findViewById(R.id.lstEmployees);
 
@@ -102,22 +97,6 @@ public class MainActivity extends AppCompatActivity {
                 {
                     Toast.makeText(MainActivity.this, "Failed to add Employee", Toast.LENGTH_LONG).show();
                 }
-
-
-
-
-
-
-
-//                   Toast.makeText(MainActivity.this, "Add button clicked", Toast.LENGTH_SHORT).show();
-
-
-
-
-
-
-
-
 
 
                 //updateEmployeesList();
