@@ -74,25 +74,39 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                try {
 
-                   Employee employeeModel = new FullTime(et_id.getText().toString(),et_name.getText().toString(),et_lname.getText().toString(),
-                           Integer.parseInt(et_age.getText().toString()),
-                           Integer.parseInt(et_salary.getText().toString()),
-                           Integer.parseInt(et_bonus.getText().toString()));
+                    Employee FTEmployee = new FullTime(et_id.getText().toString(),et_name.getText().toString(),et_lname.getText().toString(),
+                            Integer.parseInt(et_age.getText().toString()),
+                            Integer.parseInt(et_salary.getText().toString()),
+                            Integer.parseInt(et_bonus.getText().toString()));
 
-                   boolean success = databaseHelper.addFTOne(employeeModel);
-
-
-
-
-                       //Toast.makeText(MainActivity.this, "Added Emp", Toast.LENGTH_LONG).show();
-                      // Toast.makeText(MainActivity.this, employeeModel.getEmpID(), Toast.LENGTH_LONG).show();
-                       calcPayroll(employeeModel);
-                       databaseHelper = new DatabaseHelper(MainActivity.this);
+                    boolean success = databaseHelper.addFTOne(FTEmployee);
 
 
+                    if(success)
+                    {
+                        Toast.makeText(MainActivity.this, "Added Employee", Toast.LENGTH_LONG).show();
+                        // Toast.makeText(MainActivity.this, employeeModel.getEmpID(), Toast.LENGTH_LONG).show();
+                        calcPayroll(FTEmployee);
+                        databaseHelper = new DatabaseHelper(MainActivity.this);
+                    }
+                    else
+                    {
+                        Toast.makeText(MainActivity.this, "Employee already exists", Toast.LENGTH_LONG).show();
+                    }
 
-                       //Toast.makeText(MainActivity.this, "Failed to add", Toast.LENGTH_LONG).show();
+
+
+                }catch(Exception e)
+                {
+                    Toast.makeText(MainActivity.this, "Failed to add Employee", Toast.LENGTH_LONG).show();
+                }
+
+
+
+
+
 
 
 //                   Toast.makeText(MainActivity.this, "Add button clicked", Toast.LENGTH_SHORT).show();
