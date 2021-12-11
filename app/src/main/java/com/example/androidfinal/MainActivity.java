@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         et_age = findViewById(R.id.txtyear);
         et_name = findViewById(R.id.txtName);
         et_lname = findViewById(R.id.txtLName);
-        et_salary = findViewById(R.id.txtHours);
+        et_salary = findViewById(R.id.txtSalary);
         et_bonus = findViewById(R.id.txtBonus);
        // lv_employeeList = findViewById(R.id.lstEmployees);
 

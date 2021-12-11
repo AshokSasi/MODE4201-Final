@@ -71,6 +71,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+
+    public boolean addPTOne(Employee employeeModel) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_ID, employeeModel.getEmpID());
+        cv.put(COLUMN_EMPLOYEE_FNAME, employeeModel.getFirstName());
+        cv.put(COLUMN_EMPLOYEE_LNAME, employeeModel.getLastName());
+        cv.put(COLUMN_EMPLOYEE_DOB, employeeModel.getBirthYear());
+        cv.put(COLUMN_EMPLOYEE_ROLE, "PT");
+
+        //ADD SALARY TO GLOBAL VAR
+
+        //-------
+        long result = db.insert(EMPLOYEE_TABLE,null ,cv);
+
+        if (result == -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+
     /**
      * Deletes one employee from the database
      * @param emp
